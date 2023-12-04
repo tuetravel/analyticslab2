@@ -13,8 +13,6 @@
   "dependencies": {
     "@astrojs/preact": "^3.0.1",
     "@astrojs/rss": "^3.0.0",
-    "@elbwalker/client-web": "^0.0.1",
-    "@elbwalker/walker.js": "^1.6.5",
     "astro": "^3.6.4",
     "preact": "^10.19.2"
   }
