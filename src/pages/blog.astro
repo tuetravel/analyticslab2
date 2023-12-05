@@ -8,10 +8,9 @@ const pageTitle = "My Astro Learning Blog";
 
 <BaseLayout pageTitle={pageTitle}>
       
-        <h1>My Astro Site</h1>
-        <h1>My Astro Learning Blog</h1>
+        
         <p>This is where I will post about my journey learning Astro.</p>
-        <ul>
-            {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+        <ul role="list" class="divide-y divide-gray-200">
+            {allPosts.map((post) => <BlogPost pubDate={post.frontmatter.pubDate.slice(0,10)} author={post.frontmatter.author} url={post.url} title={post.frontmatter.title} image={post.frontmatter.image.url} description={post.frontmatter.description} />)}
           </ul>
         </BaseLayout>

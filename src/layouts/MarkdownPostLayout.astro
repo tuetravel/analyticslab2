@@ -4,19 +4,20 @@ const { frontmatter } = Astro.props;
 
 ---
 <BaseLayout pageTitle={frontmatter.title}>
- 
-  <p>{frontmatter.pubDate.slice(0,10)}</p>
+ <div class="flex flex-col my-4  p-4">
+  <div class=""><img class="object-cover h-48 w-96" src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /></div>
   <p><em>{frontmatter.description}</em></p>
   <p>Written by: {frontmatter.author}</p>
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-  
-  <div class="tags">
+  <p>{frontmatter.pubDate.slice(0,10)}</p>
+
+  <div class="flex py-6  gap-4 justify-items-start ">
     {frontmatter.tags.map((tag) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+      <p><a type="button" class="button text-slate-500 rounded-md p-2 py-2 border-2 bg-gradient-to-r from-slate-50 to-slate-100 border-slate-200 hover:border-teal-200" href={`/tags/${tag}`}>{tag}</a></p>
     ))}
   </div>
 
   <slot />
+  </div>
 </BaseLayout>
 <style>
     a {

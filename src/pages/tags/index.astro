@@ -1,39 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-
 const allPosts = await Astro.glob('../posts/*.md');
-
 const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
-
 const pageTitle = "Index Tags Page";
 
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="tags">
+  <div class="flex py-6  gap-2 justify-items-start">
     {tags.map((tag) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+      <p class=""><a type="button" class="button text-slate-500 rounded-md p-4 py-4 border-2 bg-gradient-to-r from-slate-50 to-slate-100 border-slate-200 hover:border-teal-200" href={`/tags/${tag}`}>{tag}</a></p>
     ))}
   </div>
 </BaseLayout>
-
-<style>
-    a {
-      color: #00539F;
-    }
-  
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  
-    .tag {
-      margin: 0.25em;
-      border: dotted 1px #a1a1a1;
-      border-radius: .5em;
-      padding: .5em 1em;
-      font-size: 1.15em;
-      background-color: #F8FCFD;
-    }
-  </style>
